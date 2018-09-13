@@ -187,6 +187,7 @@ tables:
       - corridor
       - pedestrian
       - steps
+      - platform
       public_transport:
       - platform
 
@@ -320,6 +321,7 @@ tables:
       - corridor
       - pedestrian
       - steps
+      - platform
       public_transport:
       - platform
       man_made:
