@@ -118,9 +118,9 @@ services:
     environment:
       #BBOX: "8.25,46.97,9.58,47.52"
       #BBOX: "5.97,45.75,10.7,47.72"
-      BBOX: ${BBOX}
-      MIN_ZOOM: ${MIN_ZOOM}
-      MAX_ZOOM: ${MAX_ZOOM}
+      BBOX: "24.657468,60.103548,25.163525,60.23914"
+      MIN_ZOOM: "0"
+      MAX_ZOOM: "14"
   postserve:
     image: "openmaptiles/postserve:0.2"
     env_file: .env
