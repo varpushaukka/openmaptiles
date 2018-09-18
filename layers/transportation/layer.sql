@@ -327,7 +327,7 @@ indoor INT) AS $$
             z_order
         FROM osm_highway_polygon
         -- We do not want underground pedestrian areas for now
-        WHERE zoom_level >= 13
+        WHERE zoom_level >= 11
             AND (
                   man_made IN ('bridge')
                   OR (is_area AND COALESCE(layer, 0) >= 0)
