@@ -60,48 +60,7 @@ RETURNS TABLE(osm_id bigint, geometry geometry, name text, name_en text,
         WHERE zoom_level BETWEEN 9 AND 11
         UNION ALL
 
-        -- etldoc: osm_transportation_name_linestring ->  layer_transportation_name:z12
-        SELECT
-          geometry,
-          osm_id,
-          name,
-          name_en,
-          name_de,
-          "tags",
-          ref,
-          highway,
-          network,
-          z_order,
-          layer,
-          "level",
-          indoor
-        FROM osm_transportation_name_linestring
-        WHERE zoom_level = 12
-            AND LineLabel(zoom_level, COALESCE(NULLIF(name, ''), ref), geometry)
-            AND highway_class(highway, '') NOT IN ('minor', 'track', 'path')
-            AND NOT highway_is_link(highway)
-        UNION ALL
 
-        -- etldoc: osm_transportation_name_linestring ->  layer_transportation_name:z13
-        SELECT
-          geometry,
-          osm_id,
-          name,
-          name_en,
-          name_de,
-          "tags",
-          ref,
-          highway,
-          network,
-          z_order,
-          layer,
-          "level",
-          indoor
-        FROM osm_transportation_name_linestring
-        WHERE zoom_level = 13
-            AND LineLabel(zoom_level, COALESCE(NULLIF(name, ''), ref), geometry)
-            AND highway_class(highway, '') NOT IN ('track', 'path')
-        UNION ALL
 
         -- etldoc: osm_transportation_name_linestring ->  layer_transportation_name:z14_
         SELECT
@@ -119,7 +78,7 @@ RETURNS TABLE(osm_id bigint, geometry geometry, name text, name_en text,
           "level",
           indoor
         FROM osm_transportation_name_linestring
-        WHERE zoom_level >= 14
+        WHERE zoom_level >= 12
 
     ) AS zoom_levels
     WHERE geometry && bbox
